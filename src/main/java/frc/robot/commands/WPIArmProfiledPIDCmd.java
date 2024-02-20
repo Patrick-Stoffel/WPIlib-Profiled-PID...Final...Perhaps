@@ -6,6 +6,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.math.controller.ProfiledPIDController;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
+import edu.wpi.first.math.trajectory.TrapezoidProfile.Constraints;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.ArmSubsystem;
 
@@ -15,11 +16,12 @@ public class WPIArmProfiledPIDCmd extends Command {
     private final ArmSubsystem armSubsystem;
 //  private double setPoint;
     private final ProfiledPIDController profiledPIDController;
+    private final Constraints m_constraints = new TrapezoidProfile.Constraints(2,2);
 
   public WPIArmProfiledPIDCmd(ArmSubsystem armSubsystem, double setPoint) {
       this.armSubsystem = armSubsystem;
   //   this.setPoint = setPoint;
-      this.profiledPIDController = new ProfiledPIDController(0.11, 0, 0.000, new TrapezoidProfile.Constraints(2, 2));
+      this.profiledPIDController = new ProfiledPIDController(0.11, 0, 0.000, m_constraints);
       profiledPIDController.setGoal(setPoint);                                                                // In Rotations/Sec 
       addRequirements(armSubsystem);
   }
