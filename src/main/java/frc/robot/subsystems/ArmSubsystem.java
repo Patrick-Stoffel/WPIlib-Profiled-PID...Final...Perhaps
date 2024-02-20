@@ -30,8 +30,8 @@ public class ArmSubsystem extends SubsystemBase {
 
     armNeo.setSoftLimit(SoftLimitDirection.kForward, 31.25f);  // Arm straight up = 125:1 gearing * 1/4 of one rotation
     armNeo.setSoftLimit(SoftLimitDirection.kReverse, 0.0f);
-    armNeo.enableSoftLimit(SoftLimitDirection.kForward, true); 
-    armNeo.enableSoftLimit((SoftLimitDirection.kReverse), true);
+    armNeo.enableSoftLimit(SoftLimitDirection.kForward, false); 
+    armNeo.enableSoftLimit((SoftLimitDirection.kReverse), false);
 
   }
 

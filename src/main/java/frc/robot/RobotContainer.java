@@ -36,10 +36,22 @@ public class RobotContainer {
      m_driverController.a().onTrue(new WPIArmProfiledPIDCmd(armSubsystem, 0)); // Move rot * gearing = 4 now
      m_driverController.b().onTrue(new WPIArmProfiledPIDCmd(armSubsystem, 0.5)); 
      m_driverController.x().onTrue(new WPIArmProfiledPIDCmd(armSubsystem, 1));
-//     m_driverController.y().onTrue(new WPIArmProfiledPIDCmd(armSubsystem, 2));
+     m_driverController.y().onTrue(new WPIArmProfiledPIDCmd(armSubsystem, 2));
+
+//     m_driverController.leftTrigger(0.5).onTrue(new WaitCommand(3));
+//     m_driverController.rightTrigger(0.5).onTrue(new WaitCommand(2));
 
      m_driverController.rightBumper().whileTrue(new MoveArmWithXboxCmd(armSubsystem, 0.04));
      m_driverController.leftBumper().whileTrue(new MoveArmWithXboxCmd(armSubsystem, -0.04));
+
+     m_driverController.button(8).onTrue(new MoveArmWithXboxCmd(armSubsystem, 0.02)); // little button center left
+     m_driverController.button(9).onTrue(new MoveArmWithXboxCmd(armSubsystem, -0.02)); // little button center right
+
+//     m_driverController.axisGreaterThan(2, -0.4).onTrue(new WaitCommand(5)); // left Y forward
+//     m_driverController.axisGreaterThan(1, 0.4).onTrue(new WaitCommand(11));// left X
+     
+
+
   }
 
   /**
